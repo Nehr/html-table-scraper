@@ -8,8 +8,7 @@ FILE_NAME = 'magic_set.txt'
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-#results = soup.find("div", class_="card-grid")
-
+# First set is the standard one, otherwise just use find_all and loop through
 first_card_set = soup.find("div", class_="card-grid")
 
 i = 0
@@ -23,6 +22,3 @@ with open(FILE_NAME, 'w') as f:
         print(f'card name: {card_name[-1].text.strip()}, {str(i)}/{str(len(cards))}')
         f.write(card_name_h + "\n")
 f.close()
-
-
-print('done')
